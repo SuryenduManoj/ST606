@@ -21,6 +21,9 @@ c <- c %>%
 View(c)
 
 library(devtools)
-create_package("C:\\Users\\hp\\Documents\\st606")
+create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
 use_git()
 usethis::use_data(c,overwrite = T)
+
+prompt(c, "man/c.Rd")
+
