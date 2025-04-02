@@ -1,13 +1,12 @@
-install.package("usethis")
-library(usethis)
-library(csodata)
+#install.packages("usethis")
+usethis::use_package("usethis")
+usethis::use_package("csodata")
 
 
 girls <- cso_get_data("VSA60")
-View(girls)
+
 
 boys <- cso_get_data("VSa50")
-View(boys)
 
 colnames(boys) <- colnames(girls)  # Rename boys' columns to match girls'
 
@@ -15,15 +14,16 @@ girls$Gender <- "Female"
 boys$Gender <- "Male"
 irishbabynames <- rbind(girls, boys)
 
-library(dplyr)
-irishbabynames <- irishbabynames %>%
-  rename(Names= Girls.Names)
-View(irishbabynames)
+usethis::use_package("dplyr")
+irishbabynames <- dplyr::rename(irishbabynames, Names = Girls.Names)
 
-library(devtools)
-create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
-use_git()
+
+usethis::use_package("devtools")
+
+#create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
+#use_git()
 usethis::use_data(irishbabynames,overwrite = T)
 
 prompt(irishbabynames, "man/irishbabynames.Rd")
+load_all()
 
