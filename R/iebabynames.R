@@ -13,17 +13,17 @@ colnames(boys) <- colnames(girls)  # Rename boys' columns to match girls'
 
 girls$Gender <- "Female"
 boys$Gender <- "Male"
-c <- rbind(girls, boys)
+irishbabynames <- rbind(girls, boys)
 
 library(dplyr)
-c <- c %>%
+irishbabynames <- irishbabynames %>%
   rename(Names= Girls.Names)
-View(c)
+View(irishbabynames)
 
 library(devtools)
 create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
 use_git()
-usethis::use_data(c,overwrite = T)
+usethis::use_data(irishbabynames,overwrite = T)
 
-prompt(c, "man/c.Rd")
+prompt(irishbabynames, "man/irishbabynames.Rd")
 
