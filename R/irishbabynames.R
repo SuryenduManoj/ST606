@@ -8,5 +8,6 @@
 #'   \item{Gender}{Factor: Male or Female}
 #'   \item{Statistic}}{a factor with levels Girls and Boys Names in Ireland with 3 or More Occurrences  and Rank}
 #' }
-#' @source Central Statistics Office of Ireland
+#' @source CSO, Ireland
 "irishbabynames"
+
