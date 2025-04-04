@@ -28,7 +28,6 @@ irishbabynames <- dplyr::rename(irishbabynames, Names = Girls.Names)
 #create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
 #use_git()
 #usethis::use_data(irishbabynames,overwrite = T)
-
 #prompt(irishbabynames, "man/irishbabynames.Rd")
 
 #usethis::use_r("irishbabynames")
