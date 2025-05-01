@@ -4,6 +4,9 @@ usethis::use_package("csodata")
 usethis::use_package("dplyr")
 usethis::use_package("devtools")
 usethis::use_package("roxygen2")
+usethis::use_package("ggplot2")
+usethis::use_package("ggiraph")
+usethis::use_package("tidyr")
 
 
 
