@@ -17,7 +17,8 @@
 plot_top10_boys_occurrence <- function(data) {
   before2000 <- data[1:39]  # Drop extra columns beyond 2000
   boy_occurrences <- before2000 %>%
-    dplyr::filter(Statistic == "boys Names in Ireland with 3 or More Occurrences")
+    dplyr::filter(Statistic == "Boys Names in Ireland with 3 or More Occurrences"
+)
   boy_pivot <- tidyr::pivot_longer(
     boy_occurrences,
     cols = `1964`:`2000`,

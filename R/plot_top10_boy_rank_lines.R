@@ -14,8 +14,9 @@
 #' @import ggiraph
 plot_top10_boy_rank_lines <- function(data) {
   top10_boynames <- data %>%
-    dplyr::filter(Gender == "Female",
-                  Statistic == "boys Names in Ireland with 3 or More Occurrences Rank") %>%
+    dplyr::filter(Gender == "Male",
+                  Statistic == "Boys Names in Ireland with 3 or More Occurrences Rank"
+    ) %>%
     tidyr::pivot_longer(cols = `2001`:`2024`, names_to = "Year", values_to = "Rank") %>%
     dplyr::mutate(Year = as.integer(Year),
                   Rank = as.numeric(Rank)) %>%
