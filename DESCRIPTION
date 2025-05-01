@@ -17,5 +17,8 @@ Imports:
     csodata,
     devtools,
     dplyr,
+    ggiraph,
+    ggplot2,
     roxygen2,
+    tidyr,
     usethis
