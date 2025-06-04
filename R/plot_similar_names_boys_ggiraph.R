@@ -1,3 +1,15 @@
+#' Interactive Plot of Boys with similar names
+#'
+#'
+#' @param data The full `irishbabynames` dataset.
+#' @return A `girafe` interactive plot object.
+#' @export
+#'
+#' @import dplyr
+#' @import tidyr
+#' @import ggplot2
+#' @import ggiraph
+#' @import stringdist
 
 filtered <- irishbabynames %>%
   filter(Statistic == "Boys Names in Ireland with 3 or More Occurrences")
@@ -11,17 +23,13 @@ boys_similar <- filtered %>%
   mutate(
     Year = as.numeric(Year),
     Value = as.numeric(Value),
-    Gender = "Female"
+    Gender = "Male"
   ) %>%
   select(Name, Year, Value, Gender) %>%
   filter(!is.na(Value), is.finite(Value))
 
 
 plot_similar_names_boys_ggiraph <- function(input_name, max_distance = 1, per_million = FALSE, top_n = 5) {
-  library(dplyr)
-  library(ggplot2)
-  library(ggiraph)
-  library(stringdist)
 
   df <- boys_similar
 
@@ -59,8 +67,8 @@ plot_similar_names_boys_ggiraph <- function(input_name, max_distance = 1, per_mi
   if (per_million) {
     df <- df %>%
       group_by(Year) %>%
-      mutate(total_births = sum(Value, na.rm = TRUE),
-             Value = (Value / total_births) * 1e6) %>%
+      mutate(total_occurences = sum(Value, na.rm = TRUE),
+             Value = (Value / total_occurencess) * 1e6) %>%
       ungroup()
   }
 
@@ -76,7 +84,7 @@ plot_similar_names_boys_ggiraph <- function(input_name, max_distance = 1, per_mi
     labs(
       title = paste("Popularity of Names Similar to:", input_name),
       x = "Year",
-      y = ifelse(per_million, "Per Million Births", "Raw Count"),
+      y = ifelse(per_million, "Per Million occurencess", "Raw Count"),
       color = "Name"
     ) +
     theme_minimal() +
