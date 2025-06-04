@@ -22,7 +22,7 @@ boys$Gender <- "Male"
 irishbabynames <- rbind(girls, boys)
 
 
-irishbabynames <- dplyr::rename(irishbabynames, Names = Girls.Names)
+irishbabynames <- dplyr::rename(irishbabynames, Name = Girls.Names)
 
 
 
