@@ -7,6 +7,10 @@ usethis::use_package("roxygen2")
 usethis::use_package("ggplot2")
 usethis::use_package("ggiraph")
 usethis::use_package("tidyr")
+usethis::use_package("phonics")
+usethis::use_package("stringi")
+usethis::use_package("shiny")
+
 
 
 
@@ -30,7 +34,7 @@ irishbabynames <- dplyr::rename(irishbabynames, Name = Girls.Names)
 
 #create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
 #use_git()
-usethis::use_data(irishbabynames,overwrite = T)
+#usethis::use_data(irishbabynames,overwrite = T)
 #prompt(irishbabynames, "man/irishbabynames.Rd")
 
 #usethis::use_r("irishbabynames")
