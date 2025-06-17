@@ -20,4 +20,11 @@ Imports:
     roxygen2,
     tidyr,
     usethis,
-    stringdist
+    stringdist,
+    phonics,
+    stringi,
+    shiny
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
