@@ -1,0 +1,48 @@
+---
+title: "Irish Baby Names"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{irishbabynames}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(irishbabynames)
+```
+
+
+##Introduction
+
+The irishbabynames package provides tools and interactive visualizations to explore baby name trends in Ireland using data from the CSO.
+
+This vignette demonstrates key functionality including trend plots, similar name analysis, and unisex name exploration.
+
+##Trend Plot Example
+```{r}
+plot_trend("Aoife")
+```
+
+##Similar Names Example - for Girls
+```{r}
+plot_similar_girlsnames("Aoife")
+```
+
+##Similar Names Example - for Boys
+```{r}
+plot_similar_boysnames("John")
+```
+
+##Unisex Names for a particular year
+```{r}
+plot_bar_unisex_names("A", filter_type = "start")
+```
+
+
