@@ -3,11 +3,17 @@
 #' @description
 #' Displays the trend of a given name (boys or girls) across years,
 #' showing occurrences per million births, and rank as tooltip.
-#'
+#' @import dplyr
+#' @import ggplot2
+#' @import tidyr
+#' @importFrom ggiraph geom_line_interactive geom_point_interactive girafe
+#' @importFrom stats reorder
+#' @importFrom utils data
 #' @param name_input Name to visualize (character)
 #' @return A `girafe` interactive ggplot object
 #' @export
-#' @import dplyr tidyr ggplot2 ggiraph
+
+
 
 plot_trend <- function(name_input) {
   occurences <- irishbabynames %>%

@@ -4,10 +4,12 @@
 \alias{plot_similar_girlsnames}
 \title{Plot Phonetically Similar Girls' Names Over Time}
 \usage{
-plot_similar_girlsnames(input_name1, max_distance = 1)
+plot_similar_girlsnames(input_girls_name, max_distance = 1)
 }
 \arguments{
-\item{input_name1}{A name string to find phonetically similar girls' names.}
+\item{input_girls_name}{A name string to find phonetically similar girls' names.}
+
+\item{max_distance}{Maximum string distance to consider for name similarity.}
 }
 \value{
 An interactive ggiraph plot.

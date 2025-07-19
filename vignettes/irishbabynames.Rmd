@@ -16,33 +16,56 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(irishbabynames)
+data("irishbabynames")
 ```
 
 
-##Introduction
+## Introduction
 
 The irishbabynames package provides tools and interactive visualizations to explore baby name trends in Ireland using data from the CSO.
 
-This vignette demonstrates key functionality including trend plots, similar name analysis, and unisex name exploration.
+This vignette demonstrates plots that shows:
 
-##Trend Plot Example
-```{r}
+1. The trend of a name throughout the years(1964-2024) 
+2. Similar names in girls throughout the years(1964-2024)
+3. Similar names in boys throughout the years(1964-2024)
+4. Unisex names starting with a specific letter in a given year
+5. Launching the interactive Shiny dashboard
+  
+  
+  
+## Trend Plot Example
+
+The plot_trend() function visualizes the trend of a name across years.
+```{r eval = FALSE}
 plot_trend("Aoife")
 ```
 
-##Similar Names Example - for Girls
-```{r}
+## Similar Names Example - for Girls
+
+The plot_similar_girlsnames() function shows girls' names with similar phonetics over the years.
+```{r eval = FALSE}
 plot_similar_girlsnames("Aoife")
 ```
 
-##Similar Names Example - for Boys
-```{r}
+## Similar Names Example - for Boys
+
+The plot_similar_boysnames() function shows phonetically similar boys' names.
+```{r eval = FALSE}
 plot_similar_boysnames("John")
 ```
 
-##Unisex Names for a particular year
-```{r}
-plot_bar_unisex_names("A", filter_type = "start")
+## Unisex Names for a particular year
+
+Use the plot_unisex_names() function to display unisex names starting with a particular letter in a given year.
+```{r eval = FALSE}
+plot_unisex_names("A","2024")
 ```
 
+## Launch Shiny dashboard
+
+Use this function to open an interactive dashboard for exploring Irish baby names using tabs and visualizations.
+```{r eval = FALSE}
+irishbabynames_dashboard()
+```
 

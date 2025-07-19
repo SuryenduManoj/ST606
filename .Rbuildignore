@@ -1,3 +1,7 @@
 ^ST606\.Rproj$
 ^\.Rproj\.user$
 
+^data-raw$
+^doc$
+^Meta$
+^LICENSE\.md$

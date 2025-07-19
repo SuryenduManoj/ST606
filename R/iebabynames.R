@@ -1,45 +1,76 @@
-#install.packages("usethis")
-usethis::use_package("usethis")
-usethis::use_package("csodata")
-usethis::use_package("dplyr")
-usethis::use_package("devtools")
-usethis::use_package("roxygen2")
-usethis::use_package("ggplot2")
-usethis::use_package("ggiraph")
-usethis::use_package("tidyr")
-usethis::use_package("phonics")
-usethis::use_package("stringi")
-usethis::use_package("shiny")
-
-
-
-
-
-girls <- csodata::cso_get_data("VSA60")
-boys <- csodata::cso_get_data("VSa50")
-
-
-colnames(boys) <- colnames(girls)  # Rename boys' columns to match girls'
-
-girls$Gender <- "Female"
-boys$Gender <- "Male"
-irishbabynames <- rbind(girls, boys)
-
-
-irishbabynames <- dplyr::rename(irishbabynames, Name = Girls.Names)
-
-
-
-
-
-#create_package("C:\\Users\\hp\\Documents\\tril_st606\\st606")
-#use_git()
-#usethis::use_data(irishbabynames,overwrite = T)
-#prompt(irishbabynames, "man/irishbabynames.Rd")
-
-#usethis::use_r("irishbabynames")
-
-
-
-
-
+#' Irish Baby Names
+#'
+#' A dataset of baby names in Ireland from the Central Statistics Office (CSO),
+#' including both boys' and girls' names with occurrences per year.
+#'
+#' @docType data
+#' @name irishbabynames
+#' @format A data frame with columns:
+#' \describe{
+#'   \item{Name}{First name}
+#'   \item{Gender}{Gender ("Male" or "Female")}
+#'   \item{Statistic}{Type of statistic (e.g., counts or ranks)}
+#'   \item{1964}{Number of occurrences and rank in 1964}
+#'   \item{1965}{Number of occurrences and rank in 1965}
+#'   \item{1966}{Number of occurrences and rank in 1966}
+#'   \item{1967}{Number of occurrences and rank in 1967}
+#'   \item{1968}{Number of occurrences and rank in 1968}
+#'   \item{1969}{Number of occurrences and rank in 1969}
+#'   \item{1970}{Number of occurrences and rank in 1970}
+#'   \item{1971}{Number of occurrences and rank in 1971}
+#'   \item{1972}{Number of occurrences and rank in 1972}
+#'   \item{1973}{Number of occurrences and rank in 1973}
+#'   \item{1974}{Number of occurrences and rank in 1974}
+#'   \item{1975}{Number of occurrences and rank in 1975}
+#'   \item{1976}{Number of occurrences and rank in 1976}
+#'   \item{1977}{Number of occurrences and rank in 1977}
+#'   \item{1978}{Number of occurrences and rank in 1978}
+#'   \item{1979}{Number of occurrences and rank in 1979}
+#'   \item{1980}{Number of occurrences and rank in 1980}
+#'   \item{1981}{Number of occurrences and rank in 1981}
+#'   \item{1982}{Number of occurrences and rank in 1982}
+#'   \item{1983}{Number of occurrences and rank in 1983}
+#'   \item{1984}{Number of occurrences and rank in 1984}
+#'   \item{1985}{Number of occurrences and rank in 1985}
+#'   \item{1986}{Number of occurrences and rank in 1986}
+#'   \item{1987}{Number of occurrences and rank in 1987}
+#'   \item{1988}{Number of occurrences and rank in 1988}
+#'   \item{1989}{Number of occurrences and rank in 1989}
+#'   \item{1990}{Number of occurrences and rank in 1990}
+#'   \item{1991}{Number of occurrences and rank in 1991}
+#'   \item{1992}{Number of occurrences and rank in 1992}
+#'   \item{1993}{Number of occurrences and rank in 1993}
+#'   \item{1994}{Number of occurrences and rank in 1994}
+#'   \item{1995}{Number of occurrences and rank in 1995}
+#'   \item{1996}{Number of occurrences and rank in 1996}
+#'   \item{1997}{Number of occurrences and rank in 1997}
+#'   \item{1998}{Number of occurrences and rank in 1998}
+#'   \item{1999}{Number of occurrences and rank in 1999}
+#'   \item{2000}{Number of occurrences and rank in 2000}
+#'   \item{2001}{Number of occurrences and rank in 2001}
+#'   \item{2002}{Number of occurrences and rank in 2002}
+#'   \item{2003}{Number of occurrences and rank in 2003}
+#'   \item{2004}{Number of occurrences and rank in 2004}
+#'   \item{2005}{Number of occurrences and rank in 2005}
+#'   \item{2006}{Number of occurrences and rank in 2006}
+#'   \item{2007}{Number of occurrences and rank in 2007}
+#'   \item{2008}{Number of occurrences and rank in 2008}
+#'   \item{2009}{Number of occurrences and rank in 2009}
+#'   \item{2010}{Number of occurrences and rank in 2010}
+#'   \item{2011}{Number of occurrences and rank in 2011}
+#'   \item{2012}{Number of occurrences and rank in 2012}
+#'   \item{2013}{Number of occurrences and rank in 2013}
+#'   \item{2014}{Number of occurrences and rank in 2014}
+#'   \item{2015}{Number of occurrences and rank in 2015}
+#'   \item{2016}{Number of occurrences and rank in 2016}
+#'   \item{2017}{Number of occurrences and rank in 2017}
+#'   \item{2018}{Number of occurrences and rank in 2018}
+#'   \item{2019}{Number of occurrences and rank in 2019}
+#'   \item{2020}{Number of occurrences and rank in 2020}
+#'   \item{2021}{Number of occurrences and rank in 2021}
+#'   \item{2022}{Number of occurrences and rank in 2022}
+#'   \item{2023}{Number of occurrences and rank in 2023}
+#'   \item{2024}{Number of occurrences and rank in 2024}
+#' }
+#' @source \url{https://www.cso.ie/en/}
+"irishbabynames"
