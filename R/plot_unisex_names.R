@@ -52,7 +52,7 @@ plot_unisex_names <- function(start, year) {
 
   if (nrow(filtered) == 0) {
     return(ggplotly(ggplot() +
-                      labs(title = S("No unisex names starting with", start, "in", year))))
+                      labs(title = paste("No unisex names starting with", start, "in", year))))
   }
 
   # Step 5: Get total births per gender (for normalization)
