@@ -14,12 +14,18 @@ observations on variables: `year(1964-2024)`, `gender`, `Name`,
 instances in the relevant year are included.
 
 The package 4 visualisations that can be used to explore patterns of
-baby names in Ireland over time: \* `plot_trend`: The trend of a name
-throughout the years(1964-2024) . \* `plot_similar_girlsnames`:
-Phonetically similar names in girls throughout the years(1964-2024) \*
-`plot_similar_boysnames`: Phonetically similar names in boys throughout
-the years(1964-2024) \* `plot_unisex_names`: Unisex names starting with
-a specific letter in a given year.
+baby names in Ireland over time:
+
+- `plot_trend`: The trend of a name throughout the years(1964-2024) .
+
+- `plot_similar_girlsnames`: Phonetically similar names in girls
+  throughout the years(1964-2024)
+
+- `plot_similar_boysnames`: Phonetically similar names in boys
+  throughout the years(1964-2024)
+
+- `plot_unisex_names`: Unisex names starting with a specific letter in a
+  given year.
 
 It is inspired by Hadley Wickham’s
 [**babynames**](https://cran.r-project.org/package=babynames) package.

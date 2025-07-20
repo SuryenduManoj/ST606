@@ -25,9 +25,14 @@ The irishbabynames package provides tools and interactive visualizations to expl
 The package contains the dataset `irishbabynames` with `r  format(nrow(irishbabynames), big.mark = ",")` observations on variables: `year(1964-2024)`, `gender`, `Name`, `Statistic`. Due to confidentiality reasons, only names with 3 or more instances in the relevant year are included.
 
 The package 4 visualisations that can be used to explore patterns of baby names in Ireland over time:
+
+
 * `plot_trend`: The trend of a name throughout the years(1964-2024) .
+
 * `plot_similar_girlsnames`: Phonetically similar names in girls throughout the years(1964-2024)
+
 * `plot_similar_boysnames`: Phonetically similar names in boys throughout the years(1964-2024)
+
 * `plot_unisex_names`: Unisex names starting with a specific letter in a given year.
 
 It is inspired by Hadley Wickham's [**babynames**](https://cran.r-project.org/package=babynames) package.
