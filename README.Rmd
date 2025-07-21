@@ -44,12 +44,12 @@ It is inspired by Hadley Wickham's [**babynames**](https://cran.r-project.org/pa
 
 ## Installation
 
-The package is hosted on GitHub and not available at CRAN. To install the latest development version:
+The package is hosted on GitHub and not available at CRAN. To install the latest development version along the vignette:
 
 ```{r eval = FALSE}
 if (!require("remotes")) {
     install.packages("remotes")
 }
-remotes::install_github("SuryenduManoj/irishbabynames")
+remotes::install_github("SuryenduManoj/irishbabynames", build_vignettes = TRUE)
 ```
 

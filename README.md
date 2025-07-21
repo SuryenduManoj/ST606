@@ -33,11 +33,11 @@ It is inspired by Hadley Wickham’s
 ## Installation
 
 The package is hosted on GitHub and not available at CRAN. To install
-the latest development version:
+the latest development version along the vignette:
 
 ``` r
 if (!require("remotes")) {
     install.packages("remotes")
 }
-remotes::install_github("SuryenduManoj/irishbabynames")
+remotes::install_github("SuryenduManoj/irishbabynames", build_vignettes = TRUE)
 ```
