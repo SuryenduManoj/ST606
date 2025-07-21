@@ -1,0 +1,65 @@
+---
+title: "Irish Baby Names"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{irishbabynames}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(irishbabynames)
+library(ggiraph)
+library(plotly)
+data("irishbabynames")
+```
+
+
+##Introduction
+
+The irishbabynames package provides tools and interactive visualizations to explore baby name trends in Ireland using data from the CSO.
+
+This vignette demonstrates plots that shows:
+  1. The trend of a name throughout the years(1964-2024)
+  2. Similar names in girls throughout the years(1964-2024)
+  3. Similar names in boys throughout the years(1964-2024)
+  4. Unisex names starting with a specific letter in a given year
+  5. Launching the interactive Shiny dashboard
+  
+Note: The plots in this vignette are interactive. For full interactivity, view the vignette in an RStudio Viewer or using vignette("irishbabynames").
+  
+  
+##Trend Plot Example
+```{r eval = FALSE}
+plot_trend("Aoife")
+```
+
+##Similar Names Example - for Girls
+```{r eval = FALSE}
+plot_similar_girlsnames("Aoife")
+```
+
+##Similar Names Example - for Boys
+```{r eval = FALSE}
+plot_similar_boysnames("John")
+```
+
+##Unisex Names for a particular year
+```{r eval = FALSE}
+plot_unisex_names("A","2024")
+```
+
+##Launch Shiny dashboard
+
+Use this function to open an interactive dashboard for exploring Irish baby names using tabs and visualizations.
+```{r eval = FALSE}
+irishbabynames_dashboard()
+```
+
