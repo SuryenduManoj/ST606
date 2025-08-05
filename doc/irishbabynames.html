@@ -341,45 +341,47 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(irishbabynames)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggiraph)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; Loading required package: ggplot2</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;plotly&#39;</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:ggplot2&#39;:</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;     last_plot</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:stats&#39;:</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;     filter</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:graphics&#39;:</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;     layout</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;irishbabynames&quot;</span>)</span></code></pre></div>
-<p>##Introduction</p>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;irishbabynames&quot;</span>)</span></code></pre></div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 <p>The irishbabynames package provides tools and interactive
 visualizations to explore baby name trends in Ireland using data from
 the CSO.</p>
-<p>This vignette demonstrates plots that shows: 1. The trend of a name
-throughout the years(1964-2024) 2. Similar names in girls throughout the
-years(1964-2024) 3. Similar names in boys throughout the
-years(1964-2024) 4. Unisex names starting with a specific letter in a
-given year 5. Launching the interactive Shiny dashboard</p>
+<p>This vignette demonstrates plots that shows:</p>
+<ol style="list-style-type: decimal">
+<li><p>The trend of a name throughout the years(1964-2024)</p></li>
+<li><p>Similar names in girls throughout the years(1964-2024)</p></li>
+<li><p>Similar names in boys throughout the years(1964-2024)</p></li>
+<li><p>Unisex names starting with a specific letter in a given
+year</p></li>
+<li><p>Launching the interactive Shiny dashboard</p></li>
+</ol>
 <p>Note: The plots in this vignette are interactive. For full
 interactivity, view the vignette in an RStudio Viewer or using
 vignette(“irishbabynames”).</p>
-<p>##Trend Plot Example</p>
+</div>
+<div id="trend-plot-example" class="section level2">
+<h2>Trend Plot Example</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">plot_trend</span>(<span class="st">&quot;Aoife&quot;</span>)</span></code></pre></div>
-<p>##Similar Names Example - for Girls</p>
+</div>
+<div id="similar-names-example---for-girls" class="section level2">
+<h2>Similar Names Example - for Girls</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">plot_similar_girlsnames</span>(<span class="st">&quot;Aoife&quot;</span>)</span></code></pre></div>
-<p>##Similar Names Example - for Boys</p>
+</div>
+<div id="similar-names-example---for-boys" class="section level2">
+<h2>Similar Names Example - for Boys</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">plot_similar_boysnames</span>(<span class="st">&quot;John&quot;</span>)</span></code></pre></div>
-<p>##Unisex Names for a particular year</p>
+</div>
+<div id="unisex-names-for-a-particular-year" class="section level2">
+<h2>Unisex Names for a particular year</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">plot_unisex_names</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;2024&quot;</span>)</span></code></pre></div>
-<p>##Launch Shiny dashboard</p>
+</div>
+<div id="launch-shiny-dashboard" class="section level2">
+<h2>Launch Shiny dashboard</h2>
 <p>Use this function to open an interactive dashboard for exploring
 Irish baby names using tabs and visualizations.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">irishbabynames_dashboard</span>()</span></code></pre></div>
+</div>
 
 
 

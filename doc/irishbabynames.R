@@ -6,8 +6,6 @@ knitr::opts_chunk$set(
 
 ## ----setup--------------------------------------------------------------------
 library(irishbabynames)
-library(ggiraph)
-library(plotly)
 data("irishbabynames")
 
 ## ----eval = FALSE-------------------------------------------------------------
