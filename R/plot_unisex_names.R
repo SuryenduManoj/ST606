@@ -55,29 +55,16 @@ plot_unisex_names <- function(start, year) {
                       labs(title = paste("No unisex names starting with", start, "in", year))))
   }
 
-  # Step 5: Get total births per gender (for normalization)
-  total_births <- long_data %>%
-    group_by(Gender) %>%
-    summarise(total = sum(Value, na.rm = TRUE), .groups = "drop")
-
-  # Step 6: Merge & normalize per million births
-  plot_data <- filtered %>%
-    left_join(total_births, by = "Gender") %>%
-    mutate(
-      Rate = (Value / total) * 1e6,
-      Gender = factor(Gender, levels = c("Female", "Male"))
-    )
-
-  # Step 7: Plot
-  p <- ggplot(plot_data, aes(x = Name, y = Rate, fill = Gender,
+  # Step 4: Plot
+  p <- ggplot(filtered, aes(x = Name, y = Value, fill = Gender,
                              text = paste0("Name: ", Name,
                                            "<br>Gender: ", Gender,
-                                           "<br>Occurrences (per million): ", round(Rate, 1))
+                                           "<br>Occurrences: ", Value)
   )) +
     geom_col(position = "stack") +
     labs(
       title = paste("Unisex Names Starting with", toupper(start), "in", year),
-      x = "Name", y = "Occurrences per million births", fill = "Gender"
+      x = "Name", y = "Occurrence for each name", fill = "Gender"
     ) +
     scale_y_continuous(labels = scales::label_comma()) +
     theme_minimal() +

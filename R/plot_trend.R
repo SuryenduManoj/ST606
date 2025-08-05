@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Displays the trend of a given name (boys or girls) across years,
-#' showing occurrences per million births, and rank as tooltip.
+#' showing occurrences and rank as tooltip.
 #' @import dplyr
 #' @import ggplot2
 #' @import tidyr
@@ -49,26 +49,25 @@ plot_trend <- function(name_input) {
   if (nrow(data_names) == 0) {
     return(girafe(ggobj = ggplot() + labs(title = paste("Name", name_input, "not found."))))
 }
- per_million_births <- counts %>%
-      group_by(Year) %>%
-      summarise(total_occurences = sum(Value, na.rm = TRUE), .groups = "drop")
 
-    data_names <- data_names %>%
-      left_join(per_million_births, by = "Year") %>%
-      mutate(Value = (Value / total_occurences) * 1e6)
+
 
   data_names <- data_names %>%
     mutate(tooltip = paste0(
-      "Name: ", Name,
-      "<br>Rank in ",Year,": ", ifelse(is.na(Rank), "Not Ranked", Rank)
+      "Name: ", Name,"<br>Occurrence in ",Year,": ",Value,
+      "<br>Rank:", ifelse(is.na(Rank), "Not Ranked", Rank)
     ))
   p <- ggplot(data_names, aes(x = Year, y = Value, color = Gender)) +
-    geom_line_interactive(aes(data_id = Gender, tooltip = tooltip, group = Gender), size = 1.5) +
-    geom_point_interactive(aes(data_id = Gender, tooltip = tooltip), size = 3)+
+    geom_line_interactive(aes(data_id = Gender, tooltip = tooltip, group = Gender), size = .6, linetype = "dashed") +
+    geom_point_interactive(aes(data_id = Gender, tooltip = tooltip), size = 3) +
+    scale_x_continuous(
+      breaks = seq(min(data_names$Year, na.rm = TRUE), 2024,4) # every 4 years, include 2024
+    ) +
+    scale_y_continuous(limits = c(0, max(data_names$Value, na.rm = TRUE)*1.05)) +
     labs(
       title = paste("Trend for Name:", name_input),
       x = "Year",
-      y = "per million births",
+      y = "Occurrence for each name",
       color = "Gender"
     ) +
     theme_minimal() +

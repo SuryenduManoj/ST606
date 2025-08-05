@@ -16,5 +16,5 @@ An interactive ggiraph plot.
 }
 \description{
 This function visualizes phonetically similar boys' names based on the Metaphone algorithm.
-It shows trends over years using per million births for similar names for boys.
+It shows trends over years for similar names for boys.
 }

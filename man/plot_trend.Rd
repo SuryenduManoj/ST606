@@ -14,5 +14,5 @@ A \code{girafe} interactive ggplot object
 }
 \description{
 Displays the trend of a given name (boys or girls) across years,
-showing occurrences per million births, and rank as tooltip.
+showing occurrences and rank as tooltip.
 }
