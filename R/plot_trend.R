@@ -13,9 +13,8 @@
 #' @return A `girafe` interactive ggplot object
 #' @export
 
-
-
 plot_trend <- function(name_input) {
+#pivot to long format
   occurences <- irishbabynames %>%
     pivot_longer(
       cols = matches("^[0-9]{4}$"),
@@ -28,6 +27,7 @@ plot_trend <- function(name_input) {
     ) %>%
     filter(!is.na(Value), is.finite(Value))
 
+# filtering the statistic variable
   counts <- occurences %>%
     filter(Statistic %in% c(
       "Girls Names in Ireland with 3 or More Occurrences",
@@ -41,7 +41,7 @@ plot_trend <- function(name_input) {
     rename(Rank = Value) %>%
     select(Name, Gender, Year, Rank)
 
-
+#Merging ranks and occurrences for the tooltip
   data_names <- counts %>%
     filter(tolower(Name) == tolower(name_input)) %>%
     left_join(ranks, by = c("Name", "Gender", "Year"))
@@ -50,13 +50,13 @@ plot_trend <- function(name_input) {
     return(girafe(ggobj = ggplot() + labs(title = paste("Name", name_input, "not found."))))
 }
 
-
-
+#tooltip
   data_names <- data_names %>%
     mutate(tooltip = paste0(
       "Name: ", Name,"<br>Occurrence in ",Year,": ",Value,
       "<br>Rank:", ifelse(is.na(Rank), "Not Ranked", Rank)
     ))
+#plot
   p <- ggplot(data_names, aes(x = Year, y = Value, color = Gender)) +
     geom_line_interactive(aes(data_id = Gender, tooltip = tooltip, group = Gender), size = .6, linetype = "dashed") +
     geom_point_interactive(aes(data_id = Gender, tooltip = tooltip), size = 3) +
@@ -75,6 +75,5 @@ plot_trend <- function(name_input) {
       legend.position = "top",
       axis.text.x = element_text(angle = 45, hjust = 1)
     )
-
   girafe(ggobj = p, width_svg = 10, height_svg = 6)
 }
